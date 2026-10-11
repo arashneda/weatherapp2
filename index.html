@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skyline Weather</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div>
+            <h1>Skyline</h1>
+            <p>Desktop weather</p>
+          </div>
+        </div>
+
+        <form class="search" autocomplete="off">
+          <label class="sr-only" for="city-input">Search city</label>
+          <input
+            id="city-input"
+            type="text"
+            placeholder="Search city…"
+            aria-autocomplete="list"
+            aria-controls="suggestions"
+          />
+          <button type="submit" class="icon-btn" title="Search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="7" />
+              <path d="M20 20l-3.2-3.2" />
+            </svg>
+          </button>
+          <ul id="suggestions" class="suggestions" hidden></ul>
+        </form>
+
+        <button type="button" id="geo-btn" class="geo-btn">
+          Use my location
+        </button>
+
+        <section class="current" id="current">
+          <p class="muted">Search a city to get started</p>
+        </section>
+      </aside>
+
+      <main class="main">
+        <header class="toolbar">
+          <div>
+            <p class="eyebrow" id="updated">Ready</p>
+            <h2 id="place-name">Your forecast</h2>
+          </div>
+          <div class="units" role="group" aria-label="Temperature unit">
+            <button type="button" class="unit-btn active" data-unit="celsius">°C</button>
+            <button type="button" class="unit-btn" data-unit="fahrenheit">°F</button>
+          </div>
+        </header>
+
+        <section class="panel">
+          <div class="panel-head">
+            <h3>Next 24 hours</h3>
+          </div>
+          <div class="hourly" id="hourly">
+            <p class="muted">Hourly details will appear here.</p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <h3>7-day outlook</h3>
+          </div>
+          <div class="daily" id="daily">
+            <p class="muted">Daily forecast will appear here.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="toast" class="toast" hidden></div>
+    <script src="app.js"></script>
+  </body>
+</html>
